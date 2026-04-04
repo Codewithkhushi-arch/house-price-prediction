@@ -114,7 +114,7 @@ def load_and_train():
     model.fit(X_train, y_train)
 
     pred = model.predict(X_test)
-    rmse = mean_squared_error(y_test, pred, squared=False)
+    rmse = np.sqrt(mean_squared_error(y_test, pred))
     mae  = mean_absolute_error(y_test, pred)
     r2   = r2_score(y_test, pred)
     return model, df, X_test, y_test, pred, rmse, mae, r2
